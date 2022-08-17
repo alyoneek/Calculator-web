@@ -50,11 +50,11 @@ body {
     word-wrap: break-word;
 }
 
-.calculator .output .previous{
+.calculator .output .previous-operand {
     color: #dcdcdc;
 }
 
-.calculator .output .current{
+.calculator .output .current-operand {
     color: #ffffff;
 }
 
