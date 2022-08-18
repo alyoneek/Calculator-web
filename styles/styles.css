@@ -45,17 +45,25 @@ body {
     background-color: #c2c0ac;
     grid-column: 1/5;
     border-radius: 10px;
-    font-size: 25px;
     text-align: end;
+    padding-right: 5px;
     word-wrap: break-word;
+}
+
+.calculator .output .previous-operand, .calculator .output .current-operand {
+    height: 50px;
+    line-height: 50px;
+    font-family: sans-serif;
 }
 
 .calculator .output .previous-operand {
     color: #dcdcdc;
+    font-size: 30px;
 }
 
 .calculator .output .current-operand {
     color: #ffffff;
+    font-size: 40px;
 }
 
 
