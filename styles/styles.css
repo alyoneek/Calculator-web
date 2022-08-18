@@ -25,6 +25,11 @@ body {
     box-shadow: 0 0 12px 9px grey;
 }
 
+.calculator .name {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
 .calculator-grid {
     display: grid;
     grid-template-columns: repeat(4, 80px);
@@ -40,6 +45,10 @@ body {
     border-radius: 20px;
     border: none;
     box-shadow: 1px 3px 6px 2px grey;
+}
+
+.calculator button:hover {
+    background-color: #595858;
 }
 
 .calculator .output {
@@ -78,4 +87,8 @@ body {
 
 .calculator #all-clear, #clear {
     background-color: #df5140;
+}
+
+.calculator #all-clear:hover, #clear:hover {
+    background-color: #e76d61;
 }
