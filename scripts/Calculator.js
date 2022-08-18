@@ -9,7 +9,7 @@ class Calculator {
         if (number === "." && this.currentOperand.includes(".")) {
             return
         }
-        if (this.isCurrentOperandEmpty() && number !== ".") {
+        if (this.isCurrentOperandEmpty() && number !== "." || this.currentOperand === "Infinity") {
             this.currentOperand = number.toString()
         } else {
             this.currentOperand += number.toString()
@@ -53,11 +53,14 @@ class Calculator {
                 return
         }
 
-        return result
+        return result.toString()
     }
 
     updateFrame() {
         this.previousOperandFrame.innerText = this.previousOperand
+        if (this.currentOperand === "") {
+            this.clearCurrentOperand()
+        }
         this.currentOperandFrame.innerText = this.currentOperand
     }
 
@@ -81,5 +84,12 @@ class Calculator {
         this.clearPreviousOperand()
         this.clearCurrentOperand()
         this.operation = undefined
+    }
+
+    deleteNumber() {
+        if (this.isCurrentOperandEmpty()) {
+            return
+        }
+        this.currentOperand = this.currentOperand.slice(0, -1)
     }
 }

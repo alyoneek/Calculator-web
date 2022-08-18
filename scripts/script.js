@@ -1,7 +1,6 @@
 window.addEventListener("load", function() {
     const numberButtons = document.querySelectorAll(".number")
     const operatorButtons = document.querySelectorAll(".operator")
-    const equalButton = document.querySelector(".equal")
     const allClearButton = document.querySelector(".all-clear")
     const clearButton = document.querySelector(".clear")
     const previousOperandFrame = document.querySelector(".previous-operand")
@@ -25,6 +24,11 @@ window.addEventListener("load", function() {
 
     allClearButton.addEventListener("click", () => {
         calculator.allClear()
+        calculator.updateFrame()
+    })
+
+    clearButton.addEventListener("click", () => {
+        calculator.deleteNumber()
         calculator.updateFrame()
     })
 });
