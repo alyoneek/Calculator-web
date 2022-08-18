@@ -23,11 +23,6 @@ window.addEventListener("load", function() {
         })
     })
 
-    equalButton.addEventListener("click", () => {
-        calculator.calculate()
-        calculator.updateFrame()
-    })
-
     allClearButton.addEventListener("click", () => {
         calculator.allClear()
         calculator.updateFrame()

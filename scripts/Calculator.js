@@ -9,7 +9,7 @@ class Calculator {
         if (number === "." && this.currentOperand.includes(".")) {
             return
         }
-        if (this.currentOperand === "0" && number !== ".") {
+        if (this.isCurrentOperandEmpty() && number !== ".") {
             this.currentOperand = number.toString()
         } else {
             this.currentOperand += number.toString()
@@ -17,13 +17,20 @@ class Calculator {
     }
 
     addOperation(operation) {
+        let newOperand
         if (this.isPreviousOperandEmpty()) {
-            this.previousOperand = this.currentOperand
+            newOperand = this.currentOperand
         } else {
-            this.previousOperand = this.calculate()
+            newOperand = this.calculate()
         }
-        this.previousOperand += ` ${operation}`
-        this.clearCurrentOperand()
+
+        if (operation === "=") {
+            this.currentOperand = newOperand
+            this.clearPreviousOperand()
+        } else {
+            this.previousOperand = newOperand + ` ${operation}`
+            this.clearCurrentOperand()
+        }
         this.operation = operation
     }
 
