@@ -1,6 +1,7 @@
 window.addEventListener("load", function() {
     const numberButtons = document.querySelectorAll(".number")
     const operatorButtons = document.querySelectorAll(".operator")
+    const equalButton = document.querySelector(".equal")
     const allClearButton = document.querySelector(".all-clear")
     const clearButton = document.querySelector(".clear")
     const previousOperandFrame = document.querySelector(".previous-operand")
@@ -20,6 +21,11 @@ window.addEventListener("load", function() {
             calculator.addOperation(button.innerText)
             calculator.updateFrame()
         })
+    })
+
+    equalButton.addEventListener("click", () => {
+        calculator.addEqual()
+        calculator.updateFrame()
     })
 
     allClearButton.addEventListener("click", () => {
