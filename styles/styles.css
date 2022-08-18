@@ -46,7 +46,7 @@ body {
     background-color: #c2c0ac;
     grid-column: 1/5;
     border-radius: 10px;
-    height: 100px;
+    min-height: 100px;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
