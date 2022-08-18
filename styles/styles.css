@@ -46,17 +46,14 @@ body {
     background-color: #c2c0ac;
     grid-column: 1/5;
     border-radius: 10px;
+    height: 100px;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
     flex-direction: column;
     padding: 10px;
     word-wrap: break-word;
-}
-
-.calculator .output .previous-operand, .calculator .output .current-operand {
-    height: 50px;
-    line-height: 50px;
+    word-break: break-all;
 }
 
 .calculator .output .previous-operand {
