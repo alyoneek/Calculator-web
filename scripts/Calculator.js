@@ -28,7 +28,7 @@ class Calculator {
             this.currentOperand = newOperand
             this.clearPreviousOperand()
         } else {
-            this.previousOperand = newOperand + ` ${operation}`
+            this.previousOperand = this.normalizeNumber(newOperand) + ` ${operation}`
             this.clearCurrentOperand()
         }
         this.operation = operation
@@ -56,12 +56,29 @@ class Calculator {
         return result.toString()
     }
 
+    normalizeNumber(number) {
+        if (number === "Infinity") {
+            return number
+        }
+        if (isNaN(number)) {
+            return "undefined"
+        }
+        if (number.indexOf(".") === -1) {
+            return Number(number).toLocaleString()
+        }
+
+        let integerDigits = Number(number.slice(0, number.indexOf(".")))
+        let decimalDigits = number.slice(number.indexOf(".") + 1)
+        let normalizedNumber = integerDigits.toLocaleString() + "." + decimalDigits
+        return normalizedNumber
+    }
+
     updateFrame() {
         this.previousOperandFrame.innerText = this.previousOperand
         if (this.currentOperand === "") {
             this.clearCurrentOperand()
         }
-        this.currentOperandFrame.innerText = this.currentOperand
+        this.currentOperandFrame.innerText = this.normalizeNumber(this.currentOperand)
     }
 
     clearCurrentOperand() {
